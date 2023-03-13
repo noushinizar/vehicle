@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle/Admin/Feedback_list.dart';
+import 'package:vehicle/Admin/Rental.dart';
+import 'package:vehicle/Admin/View_Driver.dart';
+import 'package:vehicle/Admin/View_user.dart';
+import 'package:vehicle/Admin/view_vehicle.dart';
 import 'package:vehicle/driver/BookingList.dart';
+import 'package:vehicle/user/vehicle.dart';
 import 'package:vehicle/widgets/Dialogbox.dart';
 import 'package:vehicle/widgets/background-image.dart';
 import 'package:vehicle/widgets/rounded-button.dart';
@@ -33,15 +38,17 @@ class AdminHome extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                  RoundedButton(buttonName: 'Manage Driver',onpress: (){
-                     showDialog(context: context, builder: (context){
+                    /* showDialog(context: context, builder: (context){
                        return AlertBox(text: 'Driver');
-                     });
+                     });*/
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>viewdriver()));
                  },),
                   SizedBox(height: 10,),
                   RoundedButton(buttonName: 'Manage User',onpress: (){
-                    showDialog(context: context, builder: (context){
+                    /*showDialog(context: context, builder: (context){
                       return AlertBox(text: 'User');
-                    });
+                    });*/
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>viewuser()));
                   },),
                   SizedBox(height: 10,),
                   RoundedButton(buttonName: 'Manage Feedback',onpress: (){
@@ -49,9 +56,10 @@ class AdminHome extends StatelessWidget {
                   },),
                   SizedBox(height: 10,),
                   RoundedButton(buttonName: 'Manage Vehicle',onpress: (){
-                    showDialog(context: context, builder: (context){
+                    /*showDialog(context: context, builder: (context){
                       return AlertBox(text: 'Vehicle');
-                    });
+                    });*/
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>viewVehicle()));
                   },),
                   SizedBox(height: 10,),
                   RoundedButton(buttonName: 'Manage booking',onpress: (){
@@ -59,9 +67,10 @@ class AdminHome extends StatelessWidget {
                   },),
                   SizedBox(height: 10,),
                   RoundedButton(buttonName: 'Manage Rental',onpress: (){
-                    showDialog(context: context, builder: (context){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Rental()));
+                   /* showDialog(context: context, builder: (context){
                       return AlertBox(text: 'Rental');
-                    });
+                    });*/
                   },),
                 ],
               ),

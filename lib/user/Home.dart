@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle/Admin/Rental.dart';
 import 'package:vehicle/screens/create-new-account.dart';
 import 'package:vehicle/user/Edit_Profile.dart';
 import 'package:vehicle/user/vehicle.dart';
@@ -37,12 +38,26 @@ class Home extends StatelessWidget {
               ),
             ),
             body: Center(
-              child: RoundedButton(
-                buttonName: "Select Vehicle",
-                onpress: () {
-                  bottomSheets(context);
-                },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RoundedButton(
+                    buttonName: "Select Vehicle",
+                    onpress: () {
+                      bottomSheets(context);
+                    },
+                  ),
+                  SizedBox(height: 20,),
+                  RoundedButton(
+                    buttonName: "Rental details",
+                    onpress: () {
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) =>Rental()));
+                    },
+                  ),
+                ],
               ),
+
             ),
           ),
         ]);
