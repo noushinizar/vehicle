@@ -8,15 +8,26 @@ class PasswordInput extends StatelessWidget {
     required this.hint,
     this.inputType,
     this.inputAction,
+    this.controller,
+    this.suffixicon,
+    this.obsecuretext,
+
+    this.validate, required String? Function(dynamic valuePass) validator,
   }) : super(key: key);
 
   final IconData icon;
   final String hint;
+  final controller;
+  final suffixicon;
+  final VoidCallback? validate;
   final TextInputType? inputType;
   final TextInputAction? inputAction;
+  final obsecuretext;
+
 
   @override
   Widget build(BuildContext context) {
+
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
@@ -28,7 +39,9 @@ class PasswordInput extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
-          child: TextField(
+          child: TextFormField(
+            validator:(validate){} ,
+            controller: controller ,
             decoration: InputDecoration(
               border: InputBorder.none,
               prefixIcon: Padding(
@@ -41,11 +54,14 @@ class PasswordInput extends StatelessWidget {
               ),
               hintText: hint,
               hintStyle: kBodyText,
+              suffixIcon: suffixicon,
             ),
-            obscureText: true,
+            //obscureText: false,
             style: kBodyText,
             keyboardType: inputType,
             textInputAction: inputAction,
+            obscureText: obsecuretext,
+
           ),
         ),
       ),

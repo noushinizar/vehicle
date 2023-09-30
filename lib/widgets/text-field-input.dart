@@ -10,6 +10,8 @@ class TextInputField extends StatelessWidget {
     this.inputAction,
      this.ontap,
     this.controller,
+
+    this.validate, required String? Function(dynamic value) validator,
   }) : super(key: key);
 
   final IconData icon;
@@ -18,6 +20,7 @@ class TextInputField extends StatelessWidget {
   final TextInputAction? inputAction;
   final VoidCallback? ontap;
   final   controller;
+  final VoidCallback? validate;
 
 
   @override
@@ -33,7 +36,8 @@ class TextInputField extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
-          child: TextField(
+          child: TextFormField(
+            validator: (validate){},
             controller:controller ,
             onTap: ontap,
             decoration: InputDecoration(
@@ -48,6 +52,7 @@ class TextInputField extends StatelessWidget {
               ),
               hintText: hint,
               hintStyle: kBodyText,
+
             ),
             style: kBodyText,
             keyboardType: inputType,

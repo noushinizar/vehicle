@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle/Admin/Feedback_list.dart';
-import 'package:vehicle/Admin/Rental.dart';
+import 'package:vehicle/user/Rental.dart';
 import 'package:vehicle/Admin/View_Driver.dart';
 import 'package:vehicle/Admin/View_user.dart';
 import 'package:vehicle/Admin/view_vehicle.dart';

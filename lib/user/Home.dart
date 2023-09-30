@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:vehicle/Admin/Rental.dart';
+import 'package:vehicle/user/Rental.dart';
 import 'package:vehicle/screens/create-new-account.dart';
 import 'package:vehicle/user/Edit_Profile.dart';
+import 'package:vehicle/user/Rent.dart';
+import 'package:vehicle/user/booking%20details.dart';
+import 'package:vehicle/user/feedback.dart';
+import 'package:vehicle/user/find_driver.dart';
 import 'package:vehicle/user/vehicle.dart';
 import 'package:vehicle/widgets/background-image.dart';
 import 'package:vehicle/widgets/rounded-button.dart';
@@ -44,7 +48,21 @@ class Home extends StatelessWidget {
                   RoundedButton(
                     buttonName: "Select Vehicle",
                     onpress: () {
-                      bottomSheets(context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Vehicle()));
+                     // bottomSheets(context);
+                    },
+                  ),
+                  SizedBox(height: 20,),
+                  RoundedButton(
+                    buttonName: "Find Driver",
+                    onpress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FindDriver()));
                     },
                   ),
                   SizedBox(height: 20,),
@@ -53,6 +71,23 @@ class Home extends StatelessWidget {
                     onpress: () {
                       Navigator.push(
                           context, MaterialPageRoute(builder: (context) =>Rental()));
+                    },
+                  ),
+
+                  SizedBox(height: 20,),
+                  RoundedButton(
+                    buttonName: "Booking details",
+                    onpress: () {
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) =>b_details()));
+                    },
+                  ),
+                  SizedBox(height: 20,),
+                  RoundedButton(
+                    buttonName: "Feedbackes",
+                    onpress: () {
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) =>feedback()));
                     },
                   ),
                 ],
@@ -64,7 +99,7 @@ class Home extends StatelessWidget {
   }
 
 }
-void bottomSheets(context) {
+/*void bottomSheets(context) {
   showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
@@ -80,5 +115,5 @@ void bottomSheets(context) {
           child: Vehicle(),
         ),
       );
-}
+}*/
 

@@ -55,6 +55,18 @@ class ForgotPassword extends StatelessWidget {
                       hint: 'Email',
                       inputType: TextInputType.emailAddress,
                       inputAction: TextInputAction.done,
+                        validator: (valueMail) {
+                          if (valueMail!.isEmpty) {
+                            return 'Please enter Email Id';
+                          }
+                          RegExp email = new RegExp(
+                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+                          if (email.hasMatch(valueMail)) {
+                            return null;
+                          } else {
+                            return 'Invalid Email Id';
+                          }
+                        }
                     ),
                     SizedBox(
                       height: 20,
